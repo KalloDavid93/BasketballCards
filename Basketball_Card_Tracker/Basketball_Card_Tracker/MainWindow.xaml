@@ -19,6 +19,11 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
+        <Button Content="Button"
+                HorizontalAlignment="Left"
+                Margin="175,72,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top" />
 
     </Grid>
 </Window>
