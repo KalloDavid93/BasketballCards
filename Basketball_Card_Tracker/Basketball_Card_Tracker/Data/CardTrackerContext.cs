@@ -8,9 +8,7 @@ namespace Basketball_Card_Tracker.Data
 {
     class CardTrackerContext : DbContext
     {
-        public DbSet<CardMissing> MissingCards { get; set; }
-        public DbSet<CardNumbered> NumberedCards { get; set; }
-        public DbSet<CardForTrade> ForTradeCards { get; set; }
+        public DbSet<Card> Cards { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

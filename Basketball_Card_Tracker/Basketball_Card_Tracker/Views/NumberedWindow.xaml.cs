@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Basketball_Card_Tracker.Models;
+using Basketball_Card_Tracker.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,11 +20,14 @@ namespace Basketball_Card_Tracker.Views
     public partial class NumberedWindow : Window
     {
         MainWindow mainWindow;
+        private readonly NumberedWindowViewModel numberedWindowViewModel;
 
         public NumberedWindow(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            numberedWindowViewModel = new NumberedWindowViewModel();
+            this.DataContext = numberedWindowViewModel;
         }
 
         private void Close(object sender, EventArgs e)
@@ -34,6 +39,27 @@ namespace Basketball_Card_Tracker.Views
         {
             AddCardWindow addCardWindow = new AddCardWindow();
             addCardWindow.Show();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            Card card = (Card)checkBox.DataContext;
+            numberedWindowViewModel.CheckCard(card);
+            System.Diagnostics.Debug.WriteLine(card.Player);
+            
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            Card card = (Card)checkBox.DataContext;
+            numberedWindowViewModel.UnCheckCard(card);
+        }
+
+        private void RemoveSelected(object sender, RoutedEventArgs e)
+        {
+            numberedWindowViewModel.DeleteCards();
         }
     }
 }

@@ -15,6 +15,8 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -29,7 +31,8 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="0"
-                 Margin="0, 0, 5, 0" />
+                 Margin="0, 0, 5, 0" 
+                 Text="{Binding Insert}"/>
 
         <Label Content="Serial Number"
                HorizontalAlignment="Right"
@@ -40,7 +43,8 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="1"
-                 Margin="0, 0, 5, 0" />
+                 Margin="0, 0, 5, 0" 
+                 Text="{Binding Serial}"/>
 
         <Label Content="Player"
                HorizontalAlignment="Right"
@@ -51,9 +55,10 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="2"
-                 Margin="0, 0, 5, 0" />
+                 Margin="0, 0, 5, 0" 
+                 Text="{Binding Player}"/>
 
-        <Label Content="Numbered"
+        <Label Content="Parallel"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"
                Grid.Column="0"
@@ -62,14 +67,39 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="3"
-                 Margin="0, 0, 5, 0" />
+                 Margin="0, 0, 5, 0" 
+                 Text="{Binding Parallel}"/>
 
+        <Label Content="Numbered"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               Grid.Column="0"
+               Grid.Row="4" />
+        <TextBox HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 Margin="0, 0, 5, 0" 
+                 Text="{Binding Numbered}"/>
+
+        <Label Content="Seller"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               Grid.Column="0"
+               Grid.Row="5" />
+        <TextBox HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center"
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 Margin="0, 0, 5, 0" 
+                 Text="{Binding Seller}"/>
+        
         <Button Content="Add Card"
                 Grid.Column="1"
-                Grid.Row="4"
+                Grid.Row="6"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                Padding="5"
+                Padding="3"
                 Margin="5"
                 Click="AddCard" />
 
