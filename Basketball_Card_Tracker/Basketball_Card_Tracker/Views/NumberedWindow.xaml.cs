@@ -2,15 +2,8 @@
 using Basketball_Card_Tracker.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Basketball_Card_Tracker.Views
 {
@@ -37,29 +30,23 @@ namespace Basketball_Card_Tracker.Views
 
         private void OpenAddCard(object sender, RoutedEventArgs e)
         {
-            AddCardWindow addCardWindow = new AddCardWindow();
+            AddCardWindow addCardWindow = new AddCardWindow(numberedWindowViewModel);
             addCardWindow.Show();
-        }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            Card card = (Card)checkBox.DataContext;
-            numberedWindowViewModel.CheckCard(card);
-            System.Diagnostics.Debug.WriteLine(card.Player);
-            
-        }
-
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            Card card = (Card)checkBox.DataContext;
-            numberedWindowViewModel.UnCheckCard(card);
         }
 
         private void RemoveSelected(object sender, RoutedEventArgs e)
         {
             numberedWindowViewModel.DeleteCards();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            numberedWindowViewModel.SelectedCards = (sender as DataGrid).SelectedItems;
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            numberedWindowViewModel.SearchStr = (sender as TextBox).Text;
         }
     }
 }

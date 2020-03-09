@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AddCardWindow"
         Height="250"
-        Width="350">
+        Width="380">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -27,12 +27,16 @@
                VerticalAlignment="Center"
                Grid.Column="0"
                Grid.Row="0" />
-        <TextBox HorizontalAlignment="Stretch"
-                 VerticalAlignment="Center"
-                 Grid.Column="1"
-                 Grid.Row="0"
-                 Margin="0, 0, 5, 0" 
-                 Text="{Binding Insert}"/>
+        <ComboBox HorizontalAlignment="Stretch"
+                  VerticalAlignment="Center"
+                  Grid.Column="1"
+                  Grid.Row="0"
+                  Margin="0, 0, 5, 0"
+                  ItemsSource="{Binding Inserts}"
+                  Text="Select Option"
+                  SelectedItem="{Binding Insert, Mode=OneWayToSource}"
+                  SelectedIndex="0">
+        </ComboBox>
 
         <Label Content="Serial Number"
                HorizontalAlignment="Right"
@@ -43,8 +47,8 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="1"
-                 Margin="0, 0, 5, 0" 
-                 Text="{Binding Serial}"/>
+                 Margin="0, 0, 5, 0"
+                 Text="{Binding Serial}" />
 
         <Label Content="Player"
                HorizontalAlignment="Right"
@@ -55,22 +59,32 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="2"
-                 Margin="0, 0, 5, 0" 
-                 Text="{Binding Player}"/>
+                 Margin="0, 0, 5, 0"
+                 Text="{Binding Player}" />
 
         <Label Content="Parallel"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"
                Grid.Column="0"
                Grid.Row="3" />
-        <TextBox HorizontalAlignment="Stretch"
-                 VerticalAlignment="Center"
-                 Grid.Column="1"
-                 Grid.Row="3"
-                 Margin="0, 0, 5, 0" 
-                 Text="{Binding Parallel}"/>
+        <ComboBox HorizontalAlignment="Stretch"
+                  VerticalAlignment="Center"
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  Margin="0, 0, 5, 0"
+                  ItemsSource="{Binding Parallels}"
+                  SelectedValue="{Binding Parallel, Mode=OneWayToSource}"
+                  SelectedValuePath="Key"
+                  SelectedIndex="0"
+                  IsSynchronizedWithCurrentItem="True">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Key}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-        <Label Content="Numbered"
+        <Label Content="Numbered To"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"
                Grid.Column="0"
@@ -79,8 +93,8 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="4"
-                 Margin="0, 0, 5, 0" 
-                 Text="{Binding Numbered}"/>
+                 Margin="0, 0, 5, 0"
+                 Text="{Binding Numbered, Mode=TwoWay}" />
 
         <Label Content="Seller"
                HorizontalAlignment="Right"
@@ -91,9 +105,9 @@
                  VerticalAlignment="Center"
                  Grid.Column="1"
                  Grid.Row="5"
-                 Margin="0, 0, 5, 0" 
-                 Text="{Binding Seller}"/>
-        
+                 Margin="0, 0, 5, 0"
+                 Text="{Binding Seller}" />
+
         <Button Content="Add Card"
                 Grid.Column="1"
                 Grid.Row="6"

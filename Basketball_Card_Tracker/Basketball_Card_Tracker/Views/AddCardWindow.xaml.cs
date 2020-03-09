@@ -20,23 +20,30 @@ namespace Basketball_Card_Tracker.Views
     {
         private readonly AddCardViewModel addCardViewModel;
 
-        public AddCardWindow()
+        public AddCardWindow(NumberedWindowViewModel numberedWindowViewModel)
         {
             InitializeComponent();
-            addCardViewModel = new AddCardViewModel();
+            addCardViewModel = new AddCardViewModel(numberedWindowViewModel);
+            this.DataContext = addCardViewModel;
+        }
+
+        public AddCardWindow(TradeWindowViewModel tradeWindowViewModel)
+        {
+            InitializeComponent();
+            addCardViewModel = new AddCardViewModel(tradeWindowViewModel);
+            this.DataContext = addCardViewModel;
+        }
+
+        public AddCardWindow(MissingWindowViewModel missingWindowViewModel)
+        {
+            InitializeComponent();
+            addCardViewModel = new AddCardViewModel(missingWindowViewModel);
             this.DataContext = addCardViewModel;
         }
 
         private void AddCard(object sender, RoutedEventArgs e)
         {
             addCardViewModel.GenerateCard();
-            System.Diagnostics.Debug.WriteLine("");
-            System.Diagnostics.Debug.WriteLine("");
-            System.Diagnostics.Debug.WriteLine("");
-            System.Diagnostics.Debug.WriteLine("asdafdgasg");
-            System.Diagnostics.Debug.WriteLine("");
-            System.Diagnostics.Debug.WriteLine("");
-            System.Diagnostics.Debug.WriteLine("");
             this.Close();
         }
     }

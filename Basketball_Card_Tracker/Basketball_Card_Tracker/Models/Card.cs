@@ -13,11 +13,12 @@ namespace Basketball_Card_Tracker.Models
         public string Player { get; set; }
         public string Serial { get; set; }
         public string Parallel { get; set; }
-        public int Numbered { get; set; }
+        public int? Numbered { get; set; }
         public string Seller { get; set; }
         public int Quantity { get; set; }
-        
-        public Card(string insert, string serial, string player, string parallel, int numbered, string seller)
+        public string Category { get; set; }
+
+        public Card(string insert, string serial, string player, string parallel, int? numbered, string seller, string category)
         {
             Insert = insert;
             Serial = serial;
@@ -26,6 +27,7 @@ namespace Basketball_Card_Tracker.Models
             Numbered = numbered;
             Seller = seller;
             Quantity = 1;
+            Category = category;
         }
     }
 }
