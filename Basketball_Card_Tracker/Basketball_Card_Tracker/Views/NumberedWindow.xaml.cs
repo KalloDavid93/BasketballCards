@@ -1,7 +1,6 @@
 ﻿using Basketball_Card_Tracker.Models;
 using Basketball_Card_Tracker.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -47,6 +46,14 @@ namespace Basketball_Card_Tracker.Views
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             numberedWindowViewModel.SearchStr = (sender as TextBox).Text;
+        }
+
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            Card card = e.EditingElement.DataContext as Card;
+            string newSeller = ((TextBox)e.EditingElement).Text;
+            card.Seller = newSeller;
+            numberedWindowViewModel.UpdateCard(card);
         }
     }
 }

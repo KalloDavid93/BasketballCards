@@ -80,7 +80,6 @@ namespace Basketball_Card_Tracker.ViewModels
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            System.Diagnostics.Debug.WriteLine("onpropertychanged");
         }
 
         private void SetInserts()
@@ -109,8 +108,10 @@ namespace Basketball_Card_Tracker.ViewModels
                     break;
                 case "New Breed":
                 case "Freshman Signatures":
+                    Parallels = SetFreshmanNewbreed();
+                    break;
                 case "Elite Signatures":
-                    Parallels = SetPinkGold();
+                    Parallels = SetElite();
                     break;
                 case "Legendary Signatures":
                     Parallels = SetLegendary();
@@ -159,7 +160,7 @@ namespace Basketball_Card_Tracker.ViewModels
                     };
         }
 
-        private Dictionary<string, int?> SetPinkGold()
+        private Dictionary<string, int?> SetFreshmanNewbreed()
         {
             return new Dictionary<string, int?>()
                     {
@@ -169,11 +170,21 @@ namespace Basketball_Card_Tracker.ViewModels
                     };
         }
 
-        private Dictionary<string, int?> SetLegendary()
+        private Dictionary<string, int?> SetElite()
         {
             return new Dictionary<string, int?>()
                     {
                         { "Base", null },
+                        { "Pink", 99},
+                        { "Gold", 10}
+                    };
+        }
+
+        private Dictionary<string, int?> SetLegendary()
+        {
+            return new Dictionary<string, int?>()
+                    {
+                        { "Base", 199 },
                         { "Pink", 99},
                         { "Gold", 10}
                     };

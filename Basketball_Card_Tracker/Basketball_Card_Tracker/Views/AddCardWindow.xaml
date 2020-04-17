@@ -113,6 +113,8 @@
                 Grid.Row="6"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
                 Padding="3"
                 Margin="5"
                 Click="AddCard" />
