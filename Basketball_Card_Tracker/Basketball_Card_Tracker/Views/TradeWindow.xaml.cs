@@ -45,5 +45,10 @@ namespace Basketball_Card_Tracker.Views
             tradeWindowViewModel.SelectedCard = card;
             tradeWindowViewModel.IncreaseQuantity();
         }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

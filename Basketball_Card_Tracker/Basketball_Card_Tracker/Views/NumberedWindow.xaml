@@ -68,7 +68,7 @@
 
 
         <DataGrid Grid.Row="2"
-                  Grid.ColumnSpan="6"
+                  Grid.ColumnSpan="3"
                   Margin="5, 0, 5, 5"
                   ItemsSource="{Binding Source={StaticResource cvsCards}}"
                   AutoGenerateColumns="False"
@@ -94,7 +94,6 @@
                                                     <TextBlock FontWeight="Bold"
                                                                Text="{Binding Path=Name}"
                                                                Margin="5,0,0,0" />
-
                                                 </DockPanel>
                                             </Expander.Header>
                                             <Expander.Content>
@@ -110,7 +109,6 @@
             </DataGrid.GroupStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Insert}"
-                                    x:Name="col1"
                                     IsReadOnly="True"
                                     Width="3*"
                                     Header="Insert">

@@ -4,11 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Basketball_Card_Tracker.Views"
+        xmlns:local1="clr-namespace:Basketball_Card_Tracker.Converters"
         mc:Ignorable="d"
         Title="Cards For Trade"
-        Height="450"
-        Width="800"
+        Height="600"
+        Width="1000"
         Closed="Close">
+
+    <Window.Resources>
+        <local1:NumberConverter x:Key="NumberConverter" />
+        <CollectionViewSource x:Key="cvsCards"
+                              Source="{Binding Cards}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Insert" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,22 +28,11 @@
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"
-                              SharedSizeGroup="A"
-                              x:Name="Col1" />
-            <ColumnDefinition Width="1*"
-                              SharedSizeGroup="B" />
-            <ColumnDefinition Width="5*"
-                              SharedSizeGroup="C" />
-            <ColumnDefinition Width="2*"
-                              SharedSizeGroup="D" />
-            <ColumnDefinition Width="1.4*"
-                              SharedSizeGroup="E" />
-            <ColumnDefinition Width="3*"
-                              SharedSizeGroup="F" />
-            <ColumnDefinition Width="0.5*"
-                              SharedSizeGroup="G" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
+
         <Button Content="Add Card"
                 Grid.Column="0"
                 Grid.Row="0"
@@ -41,67 +41,128 @@
                 Padding="3"
                 Margin="5"
                 Click="OpenAddCard" />
-        <!--<Button Content="Remove Card"
-                Grid.Column="3"
-                Grid.Row="0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Padding="3"
-                Margin="5" />-->
 
-        <Label Content="Insert"
-               Grid.Column="0"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
-        <Label Content="Serial"
-               Grid.Column="1"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
-        <Label Content="Player"
-               Grid.Column="2"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
-        <Label Content="Parallel"
-               Grid.Column="3"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
-        <Label Content="Numbered"
-               Grid.Column="4"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
-        <Label Content="Quantity"
-               Grid.Column="5"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
-        <Label Content=""
-               Grid.Column="6"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Bottom" />
+        <DockPanel Grid.Column="1"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Width="400"
+                   LastChildFill="True">
 
+            <Label>Search Player</Label>
+            <TextBox TextChanged="SearchBox_TextChanged"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center" />
+        </DockPanel>
+        
         <DataGrid Grid.Row="2"
-                  Grid.ColumnSpan="7"
+                  Grid.ColumnSpan="3"
                   Margin="5, 0, 5, 5"
-                  ItemsSource="{Binding Cards}"
+                  ItemsSource="{Binding Source={StaticResource cvsCards}}"
                   AutoGenerateColumns="False"
-                  HeadersVisibility="None">
+                  SelectionMode="Single"
+                  GridLinesVisibility="None"
+                  RowHeaderWidth="0">
+            <DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Margin"
+                                    Value="0,0,0,5" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="True"
+                                                  BorderThickness="1,1,1,5"
+                                                  x:Name="expander">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock FontWeight="Bold"
+                                                               Text="{Binding Path=Name}"
+                                                               Margin="5,0,0,0" />
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Insert}" />
-                <DataGridTextColumn Binding="{Binding Serial}" />
-                <DataGridTextColumn Binding="{Binding Player}" />
-                <DataGridTextColumn Binding="{Binding Parallel}" />
-                <DataGridTextColumn Binding="{Binding Numbered, StringFormat='/{0}'}" />
-                <DataGridTextColumn Binding="{Binding Quantity}" />
-                <DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Insert}"
+                                    IsReadOnly="True"
+                                    Width="19.5*"
+                                    Header="Insert">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Left" />
+                            <Setter Property="Margin"
+                                    Value="0, 0, 0, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Serial}"
+                                    IsReadOnly="True"
+                                    Width="6.5*"
+                                    Header="Serial">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Player}"
+                                    IsReadOnly="True"
+                                    Width="25*"
+                                    Header="Player">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Left" />
+                            <Setter Property="Margin"
+                                    Value="10, 0, 0, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Parallel}"
+                                    IsReadOnly="True"
+                                    Width="13*"
+                                    Header="Parallel">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Left" />
+                            <Setter Property="Margin"
+                                    Value="0, 0, 0, 0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Numbered, Converter={StaticResource NumberConverter}}"
+                                    IsReadOnly="True"
+                                    Width="14*"
+                                    Header="Numbered To">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTemplateColumn IsReadOnly="True"
+                                        Width="22*"
+                                        Header="Quantity">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Quantity}" />
                                 <Button Click="Decrease_Button_Click">▼</Button>
                                 <Button Click="Increase_Button_Click">▲</Button>
                             </StackPanel>
