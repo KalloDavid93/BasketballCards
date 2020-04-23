@@ -7,8 +7,8 @@
         xmlns:local1="clr-namespace:Basketball_Card_Tracker.Converters"
         mc:Ignorable="d"
         Title="Numbered/AU/JSY Cards"
-        Height="450"
-        Width="800"
+        Height="600"
+        Width="1000"
         Closed="Close">
 
     <Window.Resources>
@@ -110,7 +110,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Insert}"
                                     IsReadOnly="True"
-                                    Width="3*"
+                                    Width="19.5*"
                                     Header="Insert">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -123,7 +123,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Serial, Converter={StaticResource SerialConverter}}"
                                     IsReadOnly="True"
-                                    Width="1*"
+                                    Width="6.5*"
                                     Header="Serial">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -134,7 +134,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Player}"
                                     IsReadOnly="True"
-                                    Width="5*"
+                                    Width="25*"
                                     Header="Player">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -147,7 +147,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Parallel}"
                                     IsReadOnly="True"
-                                    Width="2*"
+                                    Width="13*"
                                     Header="Parallel">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -160,7 +160,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Numbered, Converter={StaticResource NumberConverter}}"
                                     IsReadOnly="True"
-                                    Width="1.4*"
+                                    Width="14*"
                                     Header="Numbered To">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -170,7 +170,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Seller, Mode=TwoWay}"
-                                    Width="3*"
+                                    Width="22*"
                                     Header="Seller" />
             </DataGrid.Columns>
         </DataGrid>

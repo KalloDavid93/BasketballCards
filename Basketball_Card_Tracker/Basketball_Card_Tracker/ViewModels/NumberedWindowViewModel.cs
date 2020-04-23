@@ -8,20 +8,25 @@ namespace Basketball_Card_Tracker.ViewModels
 {
     public class NumberedWindowViewModel : ViewModelBase
     {
-        public override void LoadTable()
+        public NumberedWindowViewModel()
         {
             Category = "Numbered";
+            LoadTable();
+        }
+
+        public override void LoadTable()
+        {
             using CardTrackerContext context = new CardTrackerContext();
             if (String.IsNullOrEmpty(SearchStr))
             {
                 var numberedCards = context.Cards
-                .Where(card => card.Category == "Numbered");
+                .Where(card => card.Category == this.Category);
                 Cards = new ObservableCollection<Card>(numberedCards);
             }
             else
             {
                 var numberedCards = context.Cards
-                .Where(card => card.Category == "Numbered" && card.Player.Contains(SearchStr));
+                .Where(card => card.Category == this.Category && card.Player.Contains(SearchStr));
                 Cards = new ObservableCollection<Card>(numberedCards);
             }
         }

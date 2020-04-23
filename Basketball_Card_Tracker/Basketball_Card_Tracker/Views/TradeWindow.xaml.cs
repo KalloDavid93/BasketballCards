@@ -48,7 +48,7 @@ namespace Basketball_Card_Tracker.Views
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            tradeWindowViewModel.SearchStr = (sender as TextBox).Text;
         }
     }
 }

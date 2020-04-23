@@ -32,11 +32,6 @@ namespace Basketball_Card_Tracker.ViewModels
         }
         public string Category { get; set; }
 
-        public ViewModelBase()
-        {
-            LoadTable();
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void DeleteCards()
@@ -45,8 +40,8 @@ namespace Basketball_Card_Tracker.ViewModels
             foreach (Card card in SelectedCards)
             {
                 context.Remove(card);
-                context.SaveChanges();
             }
+            context.SaveChanges();
             LoadTable();
         }
 
