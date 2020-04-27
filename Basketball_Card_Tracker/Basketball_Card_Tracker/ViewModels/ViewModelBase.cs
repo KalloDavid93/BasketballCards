@@ -1,8 +1,10 @@
 ﻿using Basketball_Card_Tracker.Data;
 using Basketball_Card_Tracker.Models;
+using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Basketball_Card_Tracker.ViewModels
@@ -48,16 +50,30 @@ namespace Basketball_Card_Tracker.ViewModels
         public void UpdateCard(Card card)
         {
             using CardTrackerContext context = new CardTrackerContext();
-            System.Diagnostics.Debug.WriteLine(card.Seller + " viewmodel");
             context.Update(card);
             context.SaveChanges();
+        }
+
+        public void LoadTable()
+        {
+            using CardTrackerContext context = new CardTrackerContext();
+            if (String.IsNullOrEmpty(SearchStr))
+            {
+                var cardsToLoad = context.Cards
+                .Where(card => card.Category == this.Category);
+                Cards = new ObservableCollection<Card>(cardsToLoad);
+            }
+            else
+            {
+                var cardsToLoad = context.Cards
+                .Where(card => card.Category == this.Category && card.Player.Contains(SearchStr));
+                Cards = new ObservableCollection<Card>(cardsToLoad);
+            }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        virtual public void LoadTable() { }
     }
 }
