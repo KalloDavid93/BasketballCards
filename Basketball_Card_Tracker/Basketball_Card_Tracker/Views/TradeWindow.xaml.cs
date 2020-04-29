@@ -13,6 +13,7 @@ namespace Basketball_Card_Tracker.Views
     {
         private readonly MainWindow mainWindow;
         private readonly TradeWindowViewModel tradeWindowViewModel;
+
         public TradeWindow(MainWindow mainWindow)
         {
             InitializeComponent();

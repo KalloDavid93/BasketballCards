@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Basketball_Card_Tracker.Views"
         xmlns:local1="clr-namespace:Basketball_Card_Tracker.Converters"
+        xmlns:control ="clr-namespace:Basketball_Card_Tracker.Views"
         mc:Ignorable="d"
         Title="MissingWindow"
         Height="600"
@@ -56,6 +57,8 @@
                      VerticalAlignment="Center" />
 
         </DockPanel>
+        <!--<control:BaseWindow />-->
+
 
         <Button Content="Move To Collection"
                 Grid.Column="3"
@@ -75,7 +78,8 @@
                   SelectionChanged="DataGrid_SelectionChanged"
                   GridLinesVisibility="None"
                   RowHeaderWidth="0"
-                  CellEditEnding="DataGrid_CellEditEnding">
+                  CellEditEnding="DataGrid_CellEditEnding"
+                  IsSynchronizedWithCurrentItem="False">
             <DataGrid.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>

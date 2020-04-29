@@ -2,6 +2,7 @@
 using Basketball_Card_Tracker.Models;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -69,6 +70,7 @@ namespace Basketball_Card_Tracker.ViewModels
                 .Where(card => card.Category == this.Category && card.Player.Contains(SearchStr));
                 Cards = new ObservableCollection<Card>(cardsToLoad);
             }
+            SelectedCards = new List<Card>();
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

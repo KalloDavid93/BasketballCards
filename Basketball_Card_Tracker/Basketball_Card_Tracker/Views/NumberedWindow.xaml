@@ -76,7 +76,8 @@
                   SelectionChanged="DataGrid_SelectionChanged"
                   GridLinesVisibility="None"
                   RowHeaderWidth="0"
-                  CellEditEnding="DataGrid_CellEditEnding">
+                  CellEditEnding="DataGrid_CellEditEnding"
+                  IsSynchronizedWithCurrentItem="False">
             <DataGrid.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>

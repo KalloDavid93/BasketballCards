@@ -11,15 +11,15 @@ namespace Basketball_Card_Tracker.Views
     /// </summary>
     public partial class MissingWindow : Window
     {
-        MainWindow mainWindow;
-        private readonly MissingWindowViewModel missingWindowViewModel;
+        private readonly MainWindow mainWindow;
+        private readonly MissingWindowViewModel viewModel;
 
         public MissingWindow(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            missingWindowViewModel = new MissingWindowViewModel();
-            this.DataContext = missingWindowViewModel;
+            viewModel = new MissingWindowViewModel();
+            this.DataContext = viewModel;
         }
 
         private void Close(object sender, EventArgs e)
@@ -29,23 +29,23 @@ namespace Basketball_Card_Tracker.Views
 
         private void OpenAddCard(object sender, RoutedEventArgs e)
         {
-            AddCardWindow addCardWindow = new AddCardWindow(missingWindowViewModel);
+            AddCardWindow addCardWindow = new AddCardWindow(viewModel);
             addCardWindow.Show();
         }
 
         private void MoveSelectedToNumbered(object sender, RoutedEventArgs e)
         {
-            missingWindowViewModel.MoveCardsToNumbered();
+            viewModel.MoveCardsToNumbered();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            missingWindowViewModel.SelectedCards = (sender as DataGrid).SelectedItems;
+            viewModel.SelectedCards = (sender as DataGrid).SelectedItems;
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            missingWindowViewModel.SearchStr = (sender as TextBox).Text;
+            viewModel.SearchStr = (sender as TextBox).Text;
         }
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
@@ -53,7 +53,7 @@ namespace Basketball_Card_Tracker.Views
             Card card = e.EditingElement.DataContext as Card;
             string newSeller = ((TextBox)e.EditingElement).Text;
             card.Seller = newSeller;
-            missingWindowViewModel.UpdateCard(card);
+            viewModel.UpdateCard(card);
         }
     }
 }

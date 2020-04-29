@@ -62,7 +62,8 @@
                   AutoGenerateColumns="False"
                   SelectionMode="Single"
                   GridLinesVisibility="None"
-                  RowHeaderWidth="0">
+                  RowHeaderWidth="0"
+                  IsSynchronizedWithCurrentItem="False">
             <DataGrid.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>

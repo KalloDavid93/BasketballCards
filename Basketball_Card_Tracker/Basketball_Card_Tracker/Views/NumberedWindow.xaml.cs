@@ -11,7 +11,7 @@ namespace Basketball_Card_Tracker.Views
     /// </summary>
     public partial class NumberedWindow : Window
     {
-        MainWindow mainWindow;
+        private readonly MainWindow mainWindow;
         private readonly NumberedWindowViewModel numberedWindowViewModel;
 
         public NumberedWindow(MainWindow mainWindow)

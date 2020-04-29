@@ -10,24 +10,31 @@ namespace Basketball_Card_Tracker.Views
     {
         private readonly AddCardViewModel addCardViewModel;
 
-        public AddCardWindow(NumberedWindowViewModel numberedWindowViewModel)
-        {
-            InitializeComponent();
-            addCardViewModel = new AddCardViewModel(numberedWindowViewModel);
-            this.DataContext = addCardViewModel;
-        }
+        //public AddCardWindow(NumberedWindowViewModel numberedWindowViewModel)
+        //{
+        //    InitializeComponent();
+        //    addCardViewModel = new AddCardViewModel(numberedWindowViewModel);
+        //    this.DataContext = addCardViewModel;
+        //}
 
-        public AddCardWindow(TradeWindowViewModel tradeWindowViewModel)
-        {
-            InitializeComponent();
-            addCardViewModel = new AddCardViewModel(tradeWindowViewModel);
-            this.DataContext = addCardViewModel;
-        }
+        //public AddCardWindow(TradeWindowViewModel tradeWindowViewModel)
+        //{
+        //    InitializeComponent();
+        //    addCardViewModel = new AddCardViewModel(tradeWindowViewModel);
+        //    this.DataContext = addCardViewModel;
+        //}
 
-        public AddCardWindow(MissingWindowViewModel missingWindowViewModel)
+        //public AddCardWindow(MissingWindowViewModel missingWindowViewModel)
+        //{
+        //    InitializeComponent();
+        //    addCardViewModel = new AddCardViewModel(missingWindowViewModel);
+        //    this.DataContext = addCardViewModel;
+        //}
+
+        public AddCardWindow(ViewModelBase viewModel)
         {
             InitializeComponent();
-            addCardViewModel = new AddCardViewModel(missingWindowViewModel);
+            addCardViewModel = new AddCardViewModel(viewModel);
             this.DataContext = addCardViewModel;
         }
 
