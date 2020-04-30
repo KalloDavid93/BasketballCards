@@ -20,7 +20,7 @@ namespace Basketball_Card_Tracker.Views
     public partial class BaseWindow : UserControl
     {
         private readonly MainWindow mainWindow;
-        private readonly ViewModelBase viewModel;
+        private readonly MissingWindowViewModel viewModel;
 
         public BaseWindow()
         {
