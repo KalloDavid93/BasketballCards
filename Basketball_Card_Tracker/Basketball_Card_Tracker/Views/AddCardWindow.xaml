@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Basketball_Card_Tracker.Views"
         mc:Ignorable="d"
-        Title="AddCardWindow"
+        Title="Add Card"
         Height="250"
         Width="380">
     <Grid>

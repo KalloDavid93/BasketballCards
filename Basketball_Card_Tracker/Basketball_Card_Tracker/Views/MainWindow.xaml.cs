@@ -1,4 +1,5 @@
 ﻿using Basketball_Card_Tracker.Views;
+using MahApps.Metro.Controls;
 using System.Windows;
 
 namespace Basketball_Card_Tracker
@@ -6,7 +7,7 @@ namespace Basketball_Card_Tracker
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MissingWindow missingWindow;
         public NumberedWindow numberedWindow;

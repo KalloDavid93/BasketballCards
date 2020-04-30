@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Basketball_Card_Tracker.Views"
         xmlns:local1="clr-namespace:Basketball_Card_Tracker.Converters"
-        xmlns:control ="clr-namespace:Basketball_Card_Tracker.Views"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:control="clr-namespace:Basketball_Card_Tracker.Views"
         mc:Ignorable="d"
-        Title="MissingWindow"
+        Title="Missing Cards"
         Height="600"
         Width="1000"
         Closed="Close">
@@ -21,8 +22,8 @@
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
     </Window.Resources>
-    
-    
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -34,7 +35,7 @@
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        
+
         <Button Content="Add Card"
                 Grid.Column="0"
                 Grid.Row="0"
