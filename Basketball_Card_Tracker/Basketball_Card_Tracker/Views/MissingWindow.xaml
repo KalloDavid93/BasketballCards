@@ -1,17 +1,17 @@
-﻿<Window x:Class="Basketball_Card_Tracker.Views.MissingWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Basketball_Card_Tracker.Views"
-        xmlns:local1="clr-namespace:Basketball_Card_Tracker.Converters"
-        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:control="clr-namespace:Basketball_Card_Tracker.Views"
-        mc:Ignorable="d"
-        Title="Missing Cards"
-        Height="600"
-        Width="1000"
-        Closed="Close">
+﻿<mah:MetroWindow x:Class="Basketball_Card_Tracker.Views.MissingWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:Basketball_Card_Tracker.Views"
+                 xmlns:local1="clr-namespace:Basketball_Card_Tracker.Converters"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:control="clr-namespace:Basketball_Card_Tracker.Views"
+                 mc:Ignorable="d"
+                 Title="Missing Cards"
+                 Height="600"
+                 Width="1000"
+                 Closed="Close">
 
     <Window.Resources>
         <local1:NumberConverter x:Key="NumberConverter" />
@@ -180,4 +180,4 @@
         </DataGrid>
 
     </Grid>
-</Window>
+</mah:MetroWindow>

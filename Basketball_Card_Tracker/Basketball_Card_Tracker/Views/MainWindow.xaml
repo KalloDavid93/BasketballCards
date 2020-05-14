@@ -1,12 +1,12 @@
-﻿<Controls:MetroWindow x:Class="Basketball_Card_Tracker.MainWindow"
+﻿<mah:MetroWindow x:Class="Basketball_Card_Tracker.MainWindow"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:local="clr-namespace:Basketball_Card_Tracker"
                       mc:Ignorable="d"
-                      Title="Main Window"
+                      Title="Basketball Card Tracker"
                       Height="652"
                       Width="835">
 
@@ -24,32 +24,49 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
+        
         <Button Content="Missing"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="0"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="150"
-                Click="OpenMissingWindow" />
+                VerticalAlignment="Top"
+                Width="200"
+                Click="OpenMissingWindow" 
+                Background="Transparent"
+                BorderBrush="Transparent"
+                FontSize="15"
+                FontFamily="/resources/fonts/#Abadi MT Std"/>
+        
         <Button Content="Numbered / AU / JSY"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="150"
-                Click="OpenNumberedWindow" />
+                VerticalAlignment="Top"
+                Width="200"
+                Click="OpenNumberedWindow"
+                Background="Transparent"
+                BorderBrush="Transparent" 
+                FontSize="15"
+                FontFamily="/resources/fonts/#Abadi MT Std"/>
+        
         <Button Content="For Trade"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="2"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="150"
-                Click="OpenTradeWindow" />
-        <Label Content="2017-18 Panini Status"
+                VerticalAlignment="Top"
+                Width="200"
+                Click="OpenTradeWindow"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                FontSize="15"
+                FontFamily="/resources/fonts/#Abadi MT Std"/>
+        
+        <Label 
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Grid.ColumnSpan="3"
                FontSize="30" />
+            <!--Content="2017-18 Panini Status"-->
 
     </Grid>
-</Controls:MetroWindow>
+</mah:MetroWindow>

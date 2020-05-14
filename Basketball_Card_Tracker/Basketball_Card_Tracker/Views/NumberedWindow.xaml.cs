@@ -1,5 +1,6 @@
 ﻿using Basketball_Card_Tracker.Models;
 using Basketball_Card_Tracker.ViewModels;
+using MahApps.Metro.Controls;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +10,7 @@ namespace Basketball_Card_Tracker.Views
     /// <summary>
     /// Interaction logic for NumberedWindow.xaml
     /// </summary>
-    public partial class NumberedWindow : Window
+    public partial class NumberedWindow : MetroWindow
     {
         private readonly MainWindow mainWindow;
         private readonly NumberedWindowViewModel numberedWindowViewModel;

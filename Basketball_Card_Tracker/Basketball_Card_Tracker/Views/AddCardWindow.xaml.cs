@@ -1,4 +1,5 @@
 ﻿using Basketball_Card_Tracker.ViewModels;
+using MahApps.Metro.Controls;
 using System.Windows;
 
 namespace Basketball_Card_Tracker.Views
@@ -6,30 +7,9 @@ namespace Basketball_Card_Tracker.Views
     /// <summary>
     /// Interaction logic for AddCardWindow.xaml
     /// </summary>
-    public partial class AddCardWindow : Window
+    public partial class AddCardWindow : MetroWindow
     {
         private readonly AddCardViewModel addCardViewModel;
-
-        //public AddCardWindow(NumberedWindowViewModel numberedWindowViewModel)
-        //{
-        //    InitializeComponent();
-        //    addCardViewModel = new AddCardViewModel(numberedWindowViewModel);
-        //    this.DataContext = addCardViewModel;
-        //}
-
-        //public AddCardWindow(TradeWindowViewModel tradeWindowViewModel)
-        //{
-        //    InitializeComponent();
-        //    addCardViewModel = new AddCardViewModel(tradeWindowViewModel);
-        //    this.DataContext = addCardViewModel;
-        //}
-
-        //public AddCardWindow(MissingWindowViewModel missingWindowViewModel)
-        //{
-        //    InitializeComponent();
-        //    addCardViewModel = new AddCardViewModel(missingWindowViewModel);
-        //    this.DataContext = addCardViewModel;
-        //}
 
         public AddCardWindow(ViewModelBase viewModel)
         {
