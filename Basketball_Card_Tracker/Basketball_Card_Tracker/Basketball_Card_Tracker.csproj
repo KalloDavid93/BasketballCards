@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="resources\fonts\AbadiMTStd-ExtraLight.otf" />
     <None Remove="resources\pictures\status_bg.jpg" />
   </ItemGroup>
 
@@ -28,6 +29,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\fonts\AbadiMTStd-ExtraLight.otf" />
   </ItemGroup>
 
 </Project>

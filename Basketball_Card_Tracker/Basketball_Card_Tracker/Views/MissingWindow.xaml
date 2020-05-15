@@ -112,7 +112,7 @@
                 </GroupStyle>
             </DataGrid.GroupStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Insert}"
+                <!--<DataGridTextColumn Binding="{Binding Insert}"
                                     IsReadOnly="True"
                                     Width="19.5*"
                                     Header="Insert">
@@ -124,7 +124,7 @@
                                     Value="0, 0, 0, 0" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
+                </DataGridTextColumn>-->
                 <DataGridTextColumn Binding="{Binding Serial}"
                                     IsReadOnly="True"
                                     Width="6.5*"
